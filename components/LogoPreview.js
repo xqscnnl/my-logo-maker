@@ -22,7 +22,7 @@ const LogoPreview = ({ designConfig }) => {
   // 从 designConfig 中解构值，并提供默认值
   const { 
     layout = "1x1", 
-    shape = "circle", 
+    shape = {1: 'circle'}, 
     colors = { primary: "#1890ff", secondary: "#f0f5ff", accent: "#096dd9" },
     footerText = "Bionic Metamaterials"
   } = designConfig;
@@ -53,11 +53,11 @@ const LogoPreview = ({ designConfig }) => {
   }
 
   // 根据形状生成不同的SVG路径
-  const renderShape = (fillColor = colors.primary) => {
+  const renderShape = (index = 1, fillColor = colors.primary) => {
     const size = 40; // 单个基元的大小
     const center = size / 2;
     
-    switch(shape) {
+    switch(shape[index]) {
       case 'circle':
         return <circle cx={center} cy={center} r={center - 2} fill={fillColor} />;
       case 'square':
@@ -150,7 +150,7 @@ const LogoPreview = ({ designConfig }) => {
             alignItems: 'center'
           }}>
             <svg width={cellSize} height={cellSize} viewBox={`0 0 40 40`}>
-              {renderShape()}
+              {renderShape({index})}
             </svg>
           </div>
         ))}
