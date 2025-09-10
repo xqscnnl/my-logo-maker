@@ -57,7 +57,7 @@ const LogoPreview = ({ designConfig }) => {
     const size = 40; // 单个基元的大小
     const center = size / 2;
 
-    console.log(shape);
+    console.log(index);
     
     switch(shape[index]) {
       case 'circle':
