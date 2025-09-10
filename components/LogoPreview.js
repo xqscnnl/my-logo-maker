@@ -152,7 +152,7 @@ const LogoPreview = ({ designConfig }) => {
             alignItems: 'center'
           }}>
             <svg width={cellSize} height={cellSize} viewBox={`0 0 40 40`}>
-              {renderShape({index})}
+              {renderShape(index)}
             </svg>
           </div>
         ))}
