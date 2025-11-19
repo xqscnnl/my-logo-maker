@@ -960,67 +960,67 @@ const renderCircularResonator = (complexity, f1, f2, f3, colors) => {
   };
 
   // 根据图案类型选择渲染函数
-  const renderPattern = () => {
-    switch(patternType) {
+  const renderPattern = (conf) => {
+    switch(conf.patternType) {
       case 0:
-        return renderSquareSpiral(complexity, feature1, feature2, feature3, colors);
+        return renderSquareSpiral(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 1:
-        return renderChiralAuxetic(complexity, feature1, feature2, feature3, colors);
+        return renderChiralAuxetic(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 2:
-        return renderMultiSquareResonator(complexity, feature1, feature2, feature3, colors);
+        return renderMultiSquareResonator(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 3:
-        return renderSquareResonator(complexity, feature1, feature2, feature3, colors);
+        return renderSquareResonator(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 4:
-        return renderDiracCone(complexity, feature1, feature2, feature3, colors);
+        return renderDiracCone(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 5:
-        return renderJerusalemCross(complexity, feature1, feature2, feature3, colors);
+        return renderJerusalemCross(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 6:
-        return renderFishnet(complexity, feature1, feature2, feature3, colors);
+        return renderFishnet(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 7:
-        return renderFractal(complexity, feature1, feature2, feature3, colors);
+        return renderFractal(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 8:
-        return renderSierpinskiCarpet(complexity, feature1, feature2, feature3, colors);
+        return renderSierpinskiCarpet(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 9:
-        return renderJerusalemCrossVariant(complexity, feature1, feature2, feature3, colors);
+        return renderJerusalemCrossVariant(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 10:
-        return renderGreekCross(complexity, feature1, feature2, feature3, colors);
+        return renderGreekCross(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 11:
-        return renderSquareGradient(complexity, feature1, feature2, feature3, colors);
+        return renderSquareGradient(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 12:
-        return renderSpecialCross(complexity, feature1, feature2, feature3, colors);
+        return renderSpecialCross(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 13:
-        return renderCircularResonator(complexity, feature1, feature2, feature3, colors);
+        return renderCircularResonator(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 14:
-        return renderDoubleCOpening(complexity, feature1, feature2, feature3, colors);
+        return renderDoubleCOpening(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 15:
-        return renderRotatingTriangles(complexity, feature1, feature2, feature3, colors);
+        return renderRotatingTriangles(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 16:
-        return renderPhotonicCrystal(complexity, feature1, feature2, feature3, colors);
+        return renderPhotonicCrystal(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 17:
-        return renderNestedSquares(complexity, feature1, feature2, feature3, colors);
+        return renderNestedSquares(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       case 18:
-        return renderPenroseOutline(complexity, feature1, feature2, feature3, colors);
+        return renderPenroseOutline(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
       default:
-        return renderSquareSpiral(complexity, feature1, feature2, feature3, colors);
+        return renderSquareSpiral(conf.complexity, conf.feature1, conf.feature2, conf.feature3, conf.colors);
     }
   };
 
   // 根据名字缩写长度确定布局
   const getLayout = () => {
-    // 如果 initials 是2个字母，使用2x2布局
-    if (initials && initials.length === 2) {
-      return "2x2";
-    }
-    // 如果 initials 是3个字母，使用2x2布局（最后一个位置留空）
-    if (initials && initials.length === 3) {
-      return "2x3";
-    }
-    // 如果 initials 是4个字母，使用2x2布局
-    if (initials && initials.length === 4) {
-      return "3x3";
-    }
+    // // 如果 initials 是2个字母，使用2x2布局
+    // if (initials && initials.length === 2) {
+    //   return "2x2";
+    // }
+    // // 如果 initials 是3个字母，使用2x2布局（最后一个位置留空）
+    // if (initials && initials.length === 3) {
+    //   return "2x3";
+    // }
+    // // 如果 initials 是4个字母，使用2x2布局
+    // if (initials && initials.length === 4) {
+    //   return "3x3";
+    // }
     // 否则使用配置的布局
-    return layout;
+    return "3x3";
   };
 
   // 解析布局字符串，如 "2x3"
@@ -1063,7 +1063,7 @@ const renderPatternGrid = () => {
               transform: `rotate(${rotation}deg)`
             }}
           >
-            {renderPattern()}
+            {renderPattern(designConfig[index])}
           </svg>
         </div>
       ))}
