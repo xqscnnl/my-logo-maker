@@ -182,7 +182,7 @@ export default function LogoGenerator() {
         </div>
 
         {/* 设计配置详情 */}
-        {designConfig && (
+        {/* {designConfig && (
           <Card title="设计详情" style={{ marginTop: '24px' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
               <div>
@@ -193,15 +193,17 @@ export default function LogoGenerator() {
                 <p><strong>喜欢的颜色:</strong> {logoData.favoriteColor}</p>
                 <p><strong>兴趣爱好:</strong> {logoData.hobbies}</p>
               </div>
-              
+         */}     
               {/* 在设计详情部分移除缩放比例的显示 */}
-              <div>
+        {/*     <div>
                 <Title level={5}>图案配置</Title>
                 <Divider />
                 <p><strong>图案类型:</strong> {patternNames[designConfig.patternType] || "方形螺旋"}</p>
                 <p><strong>复杂度:</strong> {designConfig.complexity}级</p>
                 <p><strong>旋转角度:</strong> {designConfig.rotation}°</p>
+         */}        
                 {/* 移除缩放比例的显示 */}
+         {/*  
                 <p><strong>布局:</strong> {designConfig.layout}</p>
               </div>
               
@@ -252,7 +254,7 @@ export default function LogoGenerator() {
               </div>
             </div>
           </Card>
-        )}
+        )} */}
       </div>
     </ErrorBoundary>
   );
